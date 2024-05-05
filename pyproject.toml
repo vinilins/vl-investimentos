@@ -21,9 +21,7 @@ pre-commit = "^3.7.0"
 
 [tool.ruff]
 indent-width = 4
-line-length = 120
-quote-style = "double"
-indent-style = "tab"
+line-length = 88
 exclude = [
     ".bzr",
     ".direnv",
@@ -48,6 +46,10 @@ exclude = [
     "dist",
     "site-packages",
 ]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "tab"
 
 
 [build-system]

@@ -49,7 +49,6 @@ exclude = [
 
 [tool.ruff.format]
 quote-style = "double"
-indent-style = "tab"
 
 
 [build-system]

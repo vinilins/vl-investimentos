@@ -17,6 +17,38 @@ uvloop = "^0.19.0"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.4.3"
+pre-commit = "^3.7.0"
+
+[tool.ruff]
+indent-width = 4
+line-length = 120
+quote-style = "double"
+indent-style = "tab"
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pyenv",
+    ".pytest_cache",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "site-packages",
+]
+
 
 [build-system]
 requires = ["poetry-core"]

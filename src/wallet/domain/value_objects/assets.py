@@ -1,6 +1,7 @@
 from enum import StrEnum
 
-from pydantic.dataclasses import dataclass
+from beartype import beartype
+from dataclasses import dataclass
 from libs.basic_types.textual import Textual
 
 
@@ -15,6 +16,7 @@ class Asset:
     type: AssetType
 
 
+@beartype
 @dataclass
 class AssetsRepository:
     _instance = None
@@ -26,13 +28,14 @@ class AssetsRepository:
 
     def __post_init__(self):
         self.all_assets = list(
-            map(lambda stock: Asset(name=stock, type=AssetType.STOCK), STOCKS)
+            map(lambda stock: Asset(name=Textual(stock), type=AssetType.STOCK), STOCKS)
         )
 
-    def get_asset(self, name: str, type: AssetType):
+    def get_asset(self, name: str, asset_type: AssetType):
         result = list(
             filter(
-                lambda asset: asset.name == name and asset.type == type, self.all_assets
+                lambda asset: asset.name == name and asset.type == asset_type,
+                self.all_assets,
             )
         )
         return result[0] if len(result) == 1 else None

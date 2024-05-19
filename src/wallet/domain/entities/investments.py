@@ -2,11 +2,13 @@ from datetime import datetime
 from decimal import Decimal
 from typing import Optional
 
+from beartype import beartype
 from pydantic import PositiveInt
-from pydantic.dataclasses import dataclass
+from dataclasses import dataclass
 from src.wallet.domain.value_objects.assets import Asset
 
 
+@beartype
 @dataclass
 class Investment:
     asset: Asset

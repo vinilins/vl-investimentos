@@ -8,10 +8,13 @@ from src.wallet.domain.value_objects.assets import AssetsRepository, AssetType
 def test_create_investiments():
     asset_name = "BBAS3"
 
-    asset = AssetsRepository().get_asset(name=asset_name, type=AssetType.STOCK)
+    asset = AssetsRepository().get_asset(name=asset_name, asset_type=AssetType.STOCK)
 
     bbas3 = Investment(
-        asset=asset, purchase_date=datetime(2024, 1, 1), quantity=14, unit_price="28.56"
+        asset=asset,
+        purchase_date=datetime(2024, 1, 1),
+        quantity=14,
+        unit_price=Decimal("28.56"),
     )
 
     assert bbas3.asset.name == "BBAS3"

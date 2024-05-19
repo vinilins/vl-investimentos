@@ -10,6 +10,7 @@ class AssetType(StrEnum):
     CRYPTO = "CRYPTO"
 
 
+@beartype
 @dataclass
 class Asset:
     name: Textual

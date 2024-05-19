@@ -6,4 +6,4 @@ class Textual(str):
         if not value:
             raise cls.TextualFieldCannotBeEmpty()
 
-        return super.__new__(value)
+        return super().__new__(cls, value)
